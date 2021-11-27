@@ -7,17 +7,19 @@ import Player from "./Player";
 import Reset from "./Reset";
 import Square from "./Square";
 import Winner from "./Winner";
-import Velha from "./Velha";
+import Draw from "./Draw";
 
 export default function Board() {
-  const { squares, setWhoIsWinner } = useContext(GameContext);
+  const { squares, setWhoIsWinner, setLine, whoIsWinner } =
+    useContext(GameContext);
   const [isOver, setIsOver] = useState(false);
 
   useEffect(() => {
     setIsOver(!squares.includes(null));
     const winner = calculateWinner(squares);
     if (winner) {
-      setWhoIsWinner(winner);
+      setWhoIsWinner(winner[0]);
+      setLine(winner[1]);
     }
   }, [squares]);
 
@@ -30,8 +32,8 @@ export default function Board() {
           <Square value={value} index={index} />
         ))}
       </div>
-      <Winner />
-      {isOver ? <Velha /> : ""}
+      {whoIsWinner ? <Winner /> : ""}
+      {isOver ? <Draw /> : ""}
     </div>
   );
 }

@@ -2,16 +2,15 @@ import React, { useContext, useEffect } from "react";
 
 import { GameContext } from "../contexts/GameContext";
 
-export default function Velha() {
-  const { squares, velha, setVelha, whoIsWinner } = useContext(GameContext);
+export default function Draw() {
+  const { squares, draw, setDraw, whoIsWinner } = useContext(GameContext);
 
   useEffect(() => {
     const a = squares.includes(null);
     if (a === false && whoIsWinner === null) {
-      setVelha(true);
+      setDraw(true);
     }
-    
   }, [squares, whoIsWinner]);
 
-  return <h1>{velha ? `Deu velha` : ""}</h1>;
+  return <h1>{draw ? `DRAW!` : ""}</h1>;
 }
