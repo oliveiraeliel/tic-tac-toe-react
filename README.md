@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-That's a simple project that I use to learn more about react Hooks
+That's a simple project that I use to learn more about React Hooks
 
 # Tecnologies used in this project
 
