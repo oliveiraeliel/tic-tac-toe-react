@@ -4,7 +4,7 @@ import { GameContext } from "../contexts/GameContext";
 
 export default function Player(){
     const {isXNext} = useContext(GameContext);
-    return <h1>Player: {isXNext ? 'X' : 'O'}</h1>;
+    return <h1>Player:a {isXNext ? 'X' : 'O'}</h1>;
 }
 
 
